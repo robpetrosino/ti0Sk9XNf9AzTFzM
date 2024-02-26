@@ -30,26 +30,22 @@ if new_data.isnull().sum().sum() == 0: # check if the dataset has not NaNs
         freq_encoder = (data_.groupby(i).size()) / len(data)
         data_[i] = data_[i].apply(lambda x: freq_encoder[x])
 
-    ## 2. data balancing
-    smote = SMOTE(random_state=42)
+    ## 2. feature selection
+    corr = data_.corr()
+    features_to_remove = corr.loc[:, abs(corr.loc['y']) < abs(0.1)].columns
+    data_sel = data_.drop(features_to_remove, axis=1)
+
     data_x = data_.drop(['y'], axis=1)
     data_y = data_['y']
-    data_x_smote, data_y_smote = smote.fit_resample(data_x, data_y)
-
-    ## 3. feature selection
-    data_correlation = pd.concat([data_x_smote, data_y_smote], axis=1)
-    corr = data_correlation.corr()
-    features_to_remove = corr.loc[:, abs(corr.loc['y']) < abs(0.1)].columns
-    data_x_smote_sel = data_x_smote.drop(features_to_remove, axis=1)
 
     ## 4. standardization
     columns_to_scale = ['duration']
     for i in columns_to_scale:
         standardization = StandardScaler().fit(X_train[[i]])
-        data_x_smote_sel[i] = standardization.transform(X_train[[i]])
+        data_x[i] = standardization.transform(X_train[[i]])
 
-X = data_x_smote_sel
-y = data_y_smote
+X = data_x
+y = data_y
 
-predictions = predict(xgb, new_data)
+predictions = predict(xgb, X)
 predictions
