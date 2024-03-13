@@ -1,4 +1,4 @@
-This repository contains the code for a machine learning model that is trained on the term deposit marketing dataset provided by Apziva. The goal of the prokect is to build a robust machine learning system that leverages information coming from call center data and improves the success rate for calls made to customers for any product that third-parties may offer. 
+This repository contains the code for a machine learning model that is trained on the term deposit marketing dataset provided by Apziva. The goal of the prokject is to build a robust machine learning system that leverages information coming from call center data and improves the success rate for calls made to customers for any product that third-parties may offer. 
 
 ## Prerequisites
 
@@ -25,4 +25,4 @@ The model uses `accuracy_score` and `f1_score` as evaluation metrics.
 
 # Conclusion
 
-In this project, I leveraged the power of machine learning, and employed a few pre-processing steps (label encoding, data balancing, feature-selection, and standardization), and an effective grid search cross-validation technique to identify the best parameters that allowed the XGB classifier algorithm to reach remarkably high f-1 and accuracy scores -- more than 13% higher than the target value requested by the company.
+In this project, I leveraged the power of machine learning, and employed a few pre-processing steps (label encoding, data balancing, feature-selection, and standardization), and an effective grid search cross-validation technique to identify the best parameters that allowed the XGB classifier algorithm to reach f-1 and accuracy scores of 94% -- more than 13% higher than the target value requested by the company.
