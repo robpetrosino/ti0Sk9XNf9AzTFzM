@@ -1,4 +1,4 @@
-This repository contains the code for a machine learning model that is trained on the term deposit marketing dataset provided by Apziva. The goal of the prokject is to build a robust machine learning system that leverages information coming from call center data and improves the success rate for calls made to customers for any product that third-parties may offer. 
+This repository contains the code for a machine learning model that is trained on the term deposit marketing dataset provided by Apziva. The goal of the project was to build a robust machine learning system that leverages information coming from call center data and improves the success rate for calls made to customers for any product that third-parties may offer. 
 
 ## Prerequisites
 
